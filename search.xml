@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[网页常用分享相关meta设置]]></title>
+    <url>%2F2018%2F03%2F31%2Fsharehelper%2F</url>
+    <content type="text"><![CDATA[web 开发经常需要面对  各种分享的需求， 下面总结了一些分享落地页需要设置的信息 相关链接 facebook debug , doc, twitter: debug , Summary Card, summary_large_image Card 页面设置123456789101112131415161718192021222324&lt;!-- twitter setting --&gt;&lt;meta name="twitter:card" content="$&#123;card_type&#125;"&gt;&lt;meta name="twitter:site" content="$&#123;site_name&#125;" /&gt;&lt;meta property="twitter:title" content="$&#123;title&#125;"&gt;&lt;meta property="twitter:image" content="$&#123;image_url&#125;"&gt;&lt;meta property="twitter:image:alt" content="$&#123;image_alt&#125;"&gt;&lt;meta property="twitter:description" content="$&#123;description&#125;"&gt;&lt;meta property="twitter:app:id:iphone" content="$&#123;apple_store_id&#125;"&gt;&lt;meta property="twitter:app:id:googleplay" content="$&#123;googleplay_id&#125;"&gt;&lt;!-- facebook setting --&gt;&lt;meta property="fb:app_id" content="$&#123;app_id&#125;"&gt;&lt;!-- open graph --&gt;&lt;meta property="og:type" content="website"&gt;&lt;meta property="og:site_name" content="$&#123;site_name&#125;" /&gt;&lt;meta property="og:url" content="$&#123;website_url&#125;"&gt;&lt;meta property="og:image" content="$&#123;image_url&#125;"&gt;&lt;meta property="og:image:width" content="$&#123;image_width&#125;"&gt;&lt;meta property="og:image:height" content="$&#123;image_height&#125;"&gt;&lt;meta property="og:title" content="$&#123;description&#125;"&gt;&lt;meta property="og:description" content="$&#123;description&#125;"&gt;&lt;!-- article --&gt;&lt;meta property="article:tag" content="$&#123;tag&#125;" /&gt;&lt;meta property="article:publisher" content="$&#123;publisher&#125;" /&gt;&lt;meta property="article:author" content="$&#123;author&#125;" /&gt; UI 图片准备：1. facebook: 大小：&lt;=8MB比例：1.91:1 宽高比大尺寸： 推荐: 1200x630, 最低：600x315小尺寸： 200x200 2. twitter:  长方形: 大小：&lt;=5MB比例： 2:1 宽高比大尺寸：4096x4096小尺寸：300x157格式：JPG, PNG, WEBP and GIF 正方形: 大小：&lt;=5MB比例： 1:1 宽高比尺寸： 最大: 4096x4096, 最小：144x144格式：JPG, PNG, WEBP and GIF 文案准备注：Facebook 不支持分享传入 title，twitter 可以预制一段用户分享的文案 分享卡片信息： title：不包含品牌名称或未提及域名的清晰标题。description： 清楚的说明，至少包含两个句子。image:alt：&lt;= 420 characters.]]></content>
+      <categories>
+        <category>share, web</category>
+      </categories>
+      <tags>
+        <tag>share, twitter share, facebook share</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[react 服务端渲染后客户端重新渲染原因分析]]></title>
+    <url>%2F2017%2F08%2F25%2Freact-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%90%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[1. 问题描述：当我们使用react进行服务端渲染的时候常会遇到在客户端又重新渲染（非期望的重复渲染）的问题，react提示如下：123React attempted to reuse markup in a container but the checksum was invalid. This generally means that you are using server rendering and the markup generated on the server was not what the client was expecting. React injected new markup to compensate which works but you have lost many of the benefits of server rendering. Instead, figure out why the markup being generated is different on the client or server: (client) &lt;!-- react-empty: 1 - (server) &lt;div class=&quot;castboxGl 2.产生该问题的原因： 两端渲染的数据源不一致：通常我们会将服务端渲染时的使用的数据同样传递到客户端，两端共用同一组数据渲染确保一致性。常见代码如下： 123456789101112131415161718192021// server side:const store = createStore(initialData)const content = renderToString( &lt;Provider store=&#123;store&#125;&gt; &lt;RouterContext &#123;...renderProps&#125;/&gt; &lt;/Provider&gt;)...&lt;div id="root"&gt;$&#123;content&#125;&lt;/div&gt;&lt;!-- 下面将state传递到客户端 --&gt;&lt;script&gt;window.__INITIAL_STATE__ = $&#123;JSON.stringify(state)&#125;;&lt;/script&gt;// client side:const store = createStore(window.__INITIAL_STATE__)...ReactDOM.render( &lt;Provider store=&#123;store&#125;&gt; &lt;Router history=&#123;getHistory(store)&#125; onUpdate=&#123;logPageView&#125; routes=&#123;rootRoute&#125; /&gt; &lt;/Provider&gt;, rootElement) maybe it’s just because there is an additional wrapper with devTools enabled?https://github.com/Hashnode/mern-starter/issues/139 after implementing react-router code splittinghttps://github.com/Hashnode/mern-starter/issues/149 and so on…]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react-server-render</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决某些网页无法复制的问题]]></title>
+    <url>%2F2017%2F05%2F02%2F%E8%A7%A3%E5%86%B3%E6%9F%90%E4%BA%9B%E7%BD%91%E9%A1%B5%E6%97%A0%E6%B3%95%E5%A4%8D%E5%88%B6%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[推荐一款chrome插件：Allow Copy https://chrome.google.com/webstore/detail/allow-copy/abidndjnodakeaicodfpgcnlkpppapah?utm_source=chrome-ntp-icon1. 打开要复制的内容所在的网页，然后按F12开启控制台2. 按图示操作： 12345678910复制以下代码：document.body.addEventListener(&apos;mouseup&apos;, function (e) &#123; var txt = window.getSelection(); if (txt.toString().length &gt; 1) &#123; console.error(&apos;选中的内容为:&apos;); console.info(&apos;\n\n&apos;+txt.toString()+&apos;\n\n&apos;); console.error(&apos;完毕\n&apos;); &#125;&#125;, false) 3. 如图即为可用：]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[mac-setting]]></title>
+    <url>%2F2017%2F03%2F27%2Fmac-setting%2F</url>
+    <content type="text"><![CDATA[Mac 前端开发环境搭建笔记 brew安装1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; Homebrew 1234brew install nodebrew install git-flowbrew install ffmpegbrew install mongodb 安装常用软件：iterm2 : Oh-my-zsh dash : postman : slack : chrome : atom : vscood : sublime : iStat Menus : OmniDiskSweeper : shadowsocksx : sketch :]]></content>
+      <categories>
+        <category>setting</category>
+      </categories>
+      <tags>
+        <tag>mac brew node ide</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git-note]]></title>
+    <url>%2F2017%2F03%2F27%2Fgit-note%2F</url>
+    <content type="text"><![CDATA[git使用笔记 git 一些设置12345678git config --global alias.br branchgit config --global alias.ci commitgit config --global alias.co checkoutgit config --global alias.st status# 很好看地显示git loggit config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen (%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit --&quot;git config --global log.date iso# 设置用户信息 用git config命令查看配置文件命令参数–list, 简写 -l格式：git config [–local|–global|–system] -l查看仓库级的config，git config –-local -l查看全局级的config，git config -–global -l查看系统级的config，git config –-system -l查看当前生效的配置：git config -l，显示最终三个配置文件计算后的配置信息 git remote1git remote add helloworld git@github.com:helloworld/helloworld.github.io.git 上面的命令就会增加URL地址为 1git@github.com:helloworld/helloworld.github.io.git ，名称为 helloworld 的远程服务器，以后提交代码的时候只需要使用 helloworld 别名即可查看远程仓库：$ git remote -v添加远程仓库：$ git remote add [name] [url]删除远程仓库：$ git remote rm [name]修改远程仓库：$ git remote set-url –push [name] [newUrl]拉取远程仓库：$ git pull [remoteName] [localBranchName]推送远程仓库：$ git push [remoteName] [localBranchName] *如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：$git push origin test:master // 提交本地test分支作为远程的master分支$git push origin test:test // 提交本地test分支作为远程的test分支 分支(branch)操作相关命令查看本地分支：$ git branch查看远程分支：$ git branch -r创建本地分支：$ git branch [name] —-注意新分支创建后不会自动切换为当前分支切换分支：$ git checkout [name]创建新分支并立即切换到新分支：$ git checkout -b [name]删除分支：$ git branch -d [name] —- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项合并分支：$ git merge [name] —-将名称为[name]的分支与当前分支合并创建远程分支(本地分支push到远程)：$ git push origin [name]删除远程分支：$ git push origin :heads/[name] 或 $ gitpush origin :[name] *创建空的分支：(执行命令之前记得先提交你当前分支的修改，否则会被强制删干净没得后悔)$git symbolic-ref HEAD refs/heads/[name]$rm .git/index$git clean -fdx 版本(tag)操作相关命令查看版本：$ git tag创建版本：$ git tag [name]删除版本：$ git tag -d [name]查看远程版本：$ git tag -r创建远程版本(本地版本push到远程)：$ git push origin [name]删除远程版本：$ git push origin :refs/tags/[name]合并远程仓库的tag到本地：$ git pull origin –tags上传本地tag到远程仓库：$ git push origin –tags创建带注释的tag：$ git tag -a [name] -m ‘yourMessage’ 子模块(submodule)相关操作命令添加子模块：$ git submodule add [url] [path]如：$git submodule add git@github.com:helloworld/hexo-theme-next.git themes/next 初始化子模块：$ git submodule init —-只在首次检出仓库时运行一次就行更新子模块：$ git submodule update —-每次更新或切换分支后都需要运行一下 删除子模块：（分4步走） $ git rm –cached [path] 编辑“.gitmodules”文件，将子模块的相关配置节点删除掉 编辑“ .git/config”文件，将子模块的相关配置节点删除掉 手动删除子模块残留的目录 .ssh权限问题Permissions 0644 for ‘/home/robin/.ssh/id_rsa’ are too open.It is recommended that your private key files are NOT accessible by others.This private key will be ignored.bad permissions: ignore key: /home/robin/.ssh/id_rsa 解决方案 123chmod 755 ~/.ssh/chmod 600 ~/.ssh/id_rsa ~/.ssh/id_rsa.pubchmod 644 ~/.ssh/known_hosts]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git, note</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nodemailer]]></title>
+    <url>%2F2017%2F02%2F16%2Fnodemailer%2F</url>
+    <content type="text"><![CDATA[使用nodemailer 发送Gmail邮件失败时：取消此验证即可： https://www.google.com/settings/security/lesssecureapps]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[nodejs models]]></title>
+    <url>%2F2017%2F01%2F24%2Fnodejs-models%2F</url>
+    <content type="text"><![CDATA[nodejs models工具类： superagent 模拟登陆 underscore js方法类]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Oh my zsh]]></title>
+    <url>%2F2016%2F11%2F12%2FOh-my-zsh%2F</url>
+    <content type="text"><![CDATA[Your terminal never felt this good before. Oh-My-Zsh is an open source, community-driven framework for managing your ZSH configuration. It comes bundled with a ton of helpful functions, helpers, plugins, themes, and a few things that make you shout… “Oh My ZSH!” Install oh-my-zsh now1234567Via curl: $ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;Via wget: $ sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;]]></content>
+      <categories>
+        <category>Oh my zsh</category>
+      </categories>
+      <tags>
+        <tag>Oh my zsh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sublime text3 settings]]></title>
+    <url>%2F2016%2F11%2F10%2Fsublime-text3-setting%2F</url>
+    <content type="text"><![CDATA[常用的插件： Package Control 功能：安装包管理 简介：sublime插件控制台，提供添加、删除、禁用、查找插件等功能 安装方法： CTRL+` ，出现控制台 粘贴以下代码至控制台 1import urllib.request,os,hashlib; h = &apos;df21e130d211cfc94d9b0905775a7c0f&apos; + &apos;1e3d39e33b79698005270310898eea76&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by) Emmet 功能：编码快捷键，前端必备 简介：Emmet作为zen coding的升级版，对于前端来说，可是必备插件，如果你对它还不太熟悉，可以在其官网（http://docs.emmet.io/）上看下具体的演示视频。 JSFormat 简介：指示代码中插入、修改、删除的地方 LESS LESS高亮插件 BracketHighlighter git Doc​Blockr Color​Picker 功能：调色板简介：需要输入颜色时，可直接选取颜色使用：快捷键Windows: ctrl+shift+c ConvertToUTF8 AutoFileName gitGutter 简介：指示代码中插入、修改、删除的地方 MarkdownEditing jsx支持 babel 支持ES6， React.js, jsx代码高亮，对 JavaScript, jQuery 也有很好的扩展 配置: 打开.js, .jsx 后缀的文件; 打开菜单view， Syntax -&gt; Open all with current extension as… -&gt; Babel -&gt; JavaScript (Babel)，选择babel为默认 javascript 打开syntax 修改 Emmet 兼容jsx 文件 使用方法:打开 preferences -&gt; Key bindings - Users，把下面代码复制到[]内部。 1234567891011121314151617181920212223242526272829303132&#123; &quot;keys&quot;: [ &quot;super+e&quot; ], &quot;args&quot;: &#123; &quot;action&quot;: &quot;expand_abbreviation&quot; &#125;, &quot;command&quot;: &quot;run_emmet_action&quot;, &quot;context&quot;: [&#123; &quot;key&quot;: &quot;emmet_action_enabled.expand_abbreviation&quot; &#125;]&#125;,&#123; &quot;keys&quot;: [&quot;tab&quot;], &quot;command&quot;: &quot;expand_abbreviation_by_tab&quot;, &quot;context&quot;: [&#123; &quot;operand&quot;: &quot;source.js&quot;, &quot;operator&quot;: &quot;equal&quot;, &quot;match_all&quot;: true, &quot;key&quot;: &quot;selector&quot; &#125;, &#123; &quot;key&quot;: &quot;preceding_text&quot;, &quot;operator&quot;: &quot;regex_contains&quot;, &quot;operand&quot;: &quot;(\\b(a\\b|div|span|p\\b|button)(\\.\\w*|&gt;\\w*)?([^&#125;]*?&#125;$)?)&quot;, &quot;match_all&quot;: true &#125;, &#123; &quot;key&quot;: &quot;selection_empty&quot;, &quot;operator&quot;: &quot;equal&quot;, &quot;operand&quot;: true, &quot;match_all&quot;: true &#125;]&#125; JsFormat 格式化 js 代码 使用: 打开preferences -&gt; Package Settings -&gt; JsFormat -&gt; Setting - Users,输入以下代码： 12345&#123; &quot;e4x&quot;: true, // 保存时自动格式化，看个人需要 // &quot;format_on_save&quot;: true,&#125;]]></content>
+      <categories>
+        <category>sublime</category>
+      </categories>
+      <tags>
+        <tag>sublime</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[闲散]]></title>
+    <url>%2F2016%2F11%2F03%2F%E9%97%B2%E6%95%A3%2F</url>
+    <content type="text"><![CDATA[生活不止眼前的苟且，还有诗和远方的田野。]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git-flow]]></title>
+    <url>%2F2016%2F11%2F03%2Fgit-flow%2F</url>
+    <content type="text"><![CDATA[Using git-flow to automate your git branching workflow. (_原文_) After installing git-flow (brew install git-flow), you can start using git-flow in your repository by using it’s init command. You can use it in existing projects, but let’s start a new repository: 123456789101112$ git flow initInitialized empty Git repository in ~/project/.git/No branches exist yet. Base branches must be created now.Branch name for production releases: [master]Branch name for &quot;next release&quot; development: [develop]How to name your supporting branch prefixes?Feature branches? [feature/]Release branches? [release/]Hotfix branches? [hotfix/]Support branches? [support/]Version tag prefix? [] Feature branches1. git flow feature start authentication 2. git flow feature finish authentication Versioned releases1. git flow release start 0.1.0 2. git flow release finish 0.1.0 Hotfixing production code1. git flow hotfix start assets 2. git flow hotfix finish assets set git1234567git config --global alias.br branch git config --global alias.ci commit git config --global alias.co checkout git config --global alias.st status # 很好看地显示git log git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen (%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit --&quot; # 设置用户信息]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git, git flow</tag>
+      </tags>
+  </entry>
+</search>
