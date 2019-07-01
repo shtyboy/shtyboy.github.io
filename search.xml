@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[homeassistant 安装指南]]></title>
+    <url>%2F2019%2F07%2F01%2Fhomeassistant-install-guide%2F</url>
+    <content type="text"><![CDATA[常规安装12345678910111213# init venvsudo apt-get install python3-venvpython3 -m venv venvsource ./venv/bin/activatepip3 install wheel# 安装依赖sudo apt-get install libffi-dev build-essential libssl-dev libffi-dev python3-dev# error for cryptography:# https://cryptography.io/en/latest/installation/#building-cryptography-on-linux pip3 install homeassistant N1 armbian 系统创建 service: https://www.home-assistant.io/docs/autostart/systemd/ 123456789101112# /etc/systemd/system/home-assistant.service[Unit]Description=Home AssistantAfter=network-online.target[Service]Type=simpleUser=shtyExecStart=/&lt;path&gt;/hass -c "/&lt;configpatch&gt;/homeassistant"[Install]WantedBy=multi-user.target 启用: 123456sudo systemctl --system daemon-reloadsudo systemctl enable home-assistantsudo systemctl start home-assistantsudo systemctl status home-assistantsudo systemctl disable home-assistant 获取 cpu 温度 command_line 123456- platform: command_line name: CPU Temperature command: &quot;cat /sys/class/hwmon/hwmon0/temp1_input&quot; unit_of_measurement: &quot;°C&quot; value_template: &apos;&#123;&#123; value | multiply(0.001)|round(1) &#125;&#125;&apos; scan_interval: 30]]></content>
+      <tags>
+        <tag>homeassistant, python, N1, armbian, 树莓派</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python常用命令行]]></title>
+    <url>%2F2019%2F07%2F01%2Fpython-commands%2F</url>
+    <content type="text"><![CDATA[python 命令行 新建虚拟环境 12345678910# use virtualenvvirtualenv --no-site-packages venv --python=python3# orsudo apt-get install python3-venvpython3 -m venv venv# thensource venv/bin/activatepip install wheel pm2 启动 python pm2 start ./src/main.py --name py-demo --interpreter ./venv/bin/python 生成当前项目的 requirements.txt： 1234pip freezepip freeze &gt; requirements.txt# installpip install -r requirements.txt 修改国内 pip 镜像： 12345# ~/.pip/pip.conf[global]trusted-host = mirrors.aliyun.comindex-url = https://mirrors.aliyun.com/pypi/simple]]></content>
+      <tags>
+        <tag>python, cmd, virtualenv, pip, requirements</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[网页常用分享相关meta设置]]></title>
     <url>%2F2018%2F03%2F31%2Fsharehelper%2F</url>
     <content type="text"><![CDATA[web 开发经常需要面对  各种分享的需求， 下面总结了一些分享落地页需要设置的信息 相关链接 facebook debug , doc, twitter: debug , Summary Card, summary_large_image Card 页面设置123456789101112131415161718192021222324&lt;!-- twitter setting --&gt;&lt;meta name="twitter:card" content="$&#123;card_type&#125;"&gt;&lt;meta name="twitter:site" content="$&#123;site_name&#125;" /&gt;&lt;meta property="twitter:title" content="$&#123;title&#125;"&gt;&lt;meta property="twitter:image" content="$&#123;image_url&#125;"&gt;&lt;meta property="twitter:image:alt" content="$&#123;image_alt&#125;"&gt;&lt;meta property="twitter:description" content="$&#123;description&#125;"&gt;&lt;meta property="twitter:app:id:iphone" content="$&#123;apple_store_id&#125;"&gt;&lt;meta property="twitter:app:id:googleplay" content="$&#123;googleplay_id&#125;"&gt;&lt;!-- facebook setting --&gt;&lt;meta property="fb:app_id" content="$&#123;app_id&#125;"&gt;&lt;!-- open graph --&gt;&lt;meta property="og:type" content="website"&gt;&lt;meta property="og:site_name" content="$&#123;site_name&#125;" /&gt;&lt;meta property="og:url" content="$&#123;website_url&#125;"&gt;&lt;meta property="og:image" content="$&#123;image_url&#125;"&gt;&lt;meta property="og:image:width" content="$&#123;image_width&#125;"&gt;&lt;meta property="og:image:height" content="$&#123;image_height&#125;"&gt;&lt;meta property="og:title" content="$&#123;description&#125;"&gt;&lt;meta property="og:description" content="$&#123;description&#125;"&gt;&lt;!-- article --&gt;&lt;meta property="article:tag" content="$&#123;tag&#125;" /&gt;&lt;meta property="article:publisher" content="$&#123;publisher&#125;" /&gt;&lt;meta property="article:author" content="$&#123;author&#125;" /&gt; UI 图片准备：1. facebook: 大小：&lt;=8MB比例：1.91:1 宽高比大尺寸： 推荐: 1200x630, 最低：600x315小尺寸： 200x200 2. twitter:  长方形: 大小：&lt;=5MB比例： 2:1 宽高比大尺寸：4096x4096小尺寸：300x157格式：JPG, PNG, WEBP and GIF 正方形: 大小：&lt;=5MB比例： 1:1 宽高比尺寸： 最大: 4096x4096, 最小：144x144格式：JPG, PNG, WEBP and GIF 文案准备注：Facebook 不支持分享传入 title，twitter 可以预制一段用户分享的文案 分享卡片信息： title：不包含品牌名称或未提及域名的清晰标题。description： 清楚的说明，至少包含两个句子。image:alt：&lt;= 420 characters.]]></content>

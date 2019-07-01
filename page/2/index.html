@@ -318,6 +318,341 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/10/sublime-text3-setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="豆腐di青春">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豆腐di青春">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/10/sublime-text3-setting/" itemprop="url">sublime text3 settings</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-10T18:27:40+08:00">
+                2016-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sublime/" itemprop="url" rel="index">
+                    <span itemprop="name">sublime</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/10/sublime-text3-setting/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/10/sublime-text3-setting/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="常用的插件："><a href="#常用的插件：" class="headerlink" title="常用的插件："></a>常用的插件：</h2><ol>
+<li><p><a href="https://packagecontrol.io/packages/Package%20Control" target="_blank" rel="noopener">Package Control</a></p>
+<p> 功能：安装包管理<br> 简介：sublime插件控制台，提供添加、删除、禁用、查找插件等功能</p>
+<p> 安装方法：<br> CTRL+` ，出现控制台<br> 粘贴以下代码至控制台</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;df21e130d211cfc94d9b0905775a7c0f&apos; + &apos;1e3d39e33b79698005270310898eea76&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://sublime.wbond.net/packages/Emmet" target="_blank" rel="noopener">Emmet</a></p>
+<p> 功能：编码快捷键，前端必备<br> 简介：Emmet作为zen coding的升级版，对于前端来说，可是必备插件，如果你对它还不太熟悉，可以在其官网（<a href="http://docs.emmet.io/）上看下具体的演示视频。" target="_blank" rel="noopener">http://docs.emmet.io/）上看下具体的演示视频。</a></p>
+</li>
+<li><p><a href="https://sublime.wbond.net/packages/JsFormat" target="_blank" rel="noopener">JSFormat</a></p>
+<p>简介：指示代码中插入、修改、删除的地方</p>
+</li>
+<li><p><a href="https://sublime.wbond.net/packages/LESS" target="_blank" rel="noopener">LESS</a></p>
+<p>LESS高亮插件</p>
+</li>
+<li><p><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="noopener">BracketHighlighter</a></p>
+</li>
+<li><a href="https://github.com/kemayo/sublime-text-git" target="_blank" rel="noopener">git</a></li>
+<li><a href="https://sublime.wbond.net/packages/DocBlockr" target="_blank" rel="noopener">Doc​Blockr</a></li>
+<li><p><a href="https://sublime.wbond.net/packages/ColorPicker" target="_blank" rel="noopener">Color​Picker</a></p>
+<p>功能：调色板<br>简介：需要输入颜色时，可直接选取颜色<br>使用：快捷键Windows: ctrl+shift+c</p>
+</li>
+<li><p><a href="https://sublime.wbond.net/packages/ConvertToUTF8" target="_blank" rel="noopener">ConvertToUTF8</a></p>
+</li>
+<li><a href="https://sublime.wbond.net/packages/AutoFileName" target="_blank" rel="noopener">AutoFileName</a></li>
+<li><p><a href="https://packagecontrol.io/packages/GitGutter" target="_blank" rel="noopener">gitGutter</a></p>
+<p>简介：指示代码中插入、修改、删除的地方</p>
+</li>
+<li><a href="https://github.com/SublimeText-Markdown/MarkdownEditing/issues" target="_blank" rel="noopener">MarkdownEditing</a></li>
+</ol>
+<h2 id="jsx支持"><a href="#jsx支持" class="headerlink" title="jsx支持"></a>jsx支持</h2><ol>
+<li><p><a href="https://packagecontrol.io/packages/Babel" target="_blank" rel="noopener">babel</a></p>
+<p> 支持ES6， React.js, jsx代码高亮，对 JavaScript, jQuery 也有很好的扩展<br> 配置:</p>
+<ol>
+<li><p>打开.js, .jsx 后缀的文件;</p>
+</li>
+<li><p>打开菜单view， Syntax -&gt; Open all with current extension as… -&gt; Babel -&gt; JavaScript (Babel)，选择babel为默认 javascript 打开syntax</p>
+</li>
+</ol>
+</li>
+<li><p>修改 Emmet 兼容jsx 文件</p>
+<p>使用方法:<br>打开 preferences -&gt; Key bindings - Users，把下面代码复制到[]内部。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;keys&quot;: [</span><br><span class="line">    &quot;super+e&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;args&quot;: &#123;</span><br><span class="line">    &quot;action&quot;: &quot;expand_abbreviation&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;command&quot;: &quot;run_emmet_action&quot;,</span><br><span class="line">  &quot;context&quot;: [&#123;</span><br><span class="line">    &quot;key&quot;: &quot;emmet_action_enabled.expand_abbreviation&quot;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;keys&quot;: [&quot;tab&quot;],</span><br><span class="line">  &quot;command&quot;: &quot;expand_abbreviation_by_tab&quot;,</span><br><span class="line">  &quot;context&quot;: [&#123;</span><br><span class="line">    &quot;operand&quot;: &quot;source.js&quot;,</span><br><span class="line">    &quot;operator&quot;: &quot;equal&quot;,</span><br><span class="line">    &quot;match_all&quot;: true,</span><br><span class="line">    &quot;key&quot;: &quot;selector&quot;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    &quot;key&quot;: &quot;preceding_text&quot;,</span><br><span class="line">    &quot;operator&quot;: &quot;regex_contains&quot;,</span><br><span class="line">    &quot;operand&quot;: &quot;(\\b(a\\b|div|span|p\\b|button)(\\.\\w*|&gt;\\w*)?([^&#125;]*?&#125;$)?)&quot;,</span><br><span class="line">    &quot;match_all&quot;: true</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    &quot;key&quot;: &quot;selection_empty&quot;,</span><br><span class="line">    &quot;operator&quot;: &quot;equal&quot;,</span><br><span class="line">    &quot;operand&quot;: true,</span><br><span class="line">    &quot;match_all&quot;: true</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JsFormat 格式化 js 代码</p>
+<p> 使用:<br> 打开preferences -&gt; Package Settings -&gt; JsFormat -&gt; Setting - Users,输入以下代码：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;e4x&quot;: true,</span><br><span class="line">  // 保存时自动格式化，看个人需要</span><br><span class="line">  // &quot;format_on_save&quot;: true,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/03/闲散/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="豆腐di青春">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豆腐di青春">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/03/闲散/" itemprop="url">闲散</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-03T15:53:14+08:00">
+                2016-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/03/闲散/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/03/闲散/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="生活不止眼前的苟且，还有诗和远方的田野。"><a href="#生活不止眼前的苟且，还有诗和远方的田野。" class="headerlink" title="生活不止眼前的苟且，还有诗和远方的田野。"></a>生活不止眼前的苟且，还有诗和远方的田野。</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/03/git-flow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -510,7 +845,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -532,7 +867,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
